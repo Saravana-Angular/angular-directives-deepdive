@@ -17,10 +17,13 @@
           [ngStyle]="{backgroundColor: even % 2 == 0 ? 'green' : 'transparent'}" >{{even}}
           </li>
         </div>
+        <ng-template [ngIf]="!onlyOdd">
+          <li class="list-group-item" *ngFor="let even of evenNumbers"
+          [ngClass]="{odd: even % 2 !== 0}"
+          [ngStyle]="{backgroundColor: even % 2 == 0 ? 'green' : 'transparent'}" >{{even}}
+          </li>
+        </ng-template>
       </ul>
-      <!-- <ng-template [ngIf]="onlyOdd">
-        <p>Only odd</p>
-      </ng-template> -->
       <p appBasicHighlight>Style me with basic directive!</p>
       <p appBetterHighlight [defaultColor]="'yellow'" highlightColor="red">Style me with better directive!</p>
     </div>
